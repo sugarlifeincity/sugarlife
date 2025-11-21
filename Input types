@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Types input in HTML">
+    <title>Input Types</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+
+        }
+        body {
+            font-family: "Roboto Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            padding: 10px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        input[type=button] { background-color: aqua;}
+        input[type=submit] { background-color: white;}
+        input[type=reset] { background-color: aqua; }
+
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr><th bgcolor="#ff7f50" colspan="3">Types input</th></tr>
+    <tr>
+        <th bgcolor="aqua">type</th>
+        <th bgcolor="aqua">field example</th>
+        <th bgcolor="aqua">description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- split the inputs --><tr>
+        <td><code>1. text</code></td><td><input type="text" placeholder="just text"></td><td>write a little text</td>
+    </tr>
+    <!-- split the inputs -->
+    <tr>
+        <td><code>2. email</code></td><td><input type="email" placeholder="user@example.com"></td><td>field for email</td>
+    </tr>
+    <!-- split the inputs -->
+    <tr>
+        <td><code>3. password</code></td><td><input type="password" placeholder="********"></td><td>field for password</td>
+    </tr>
+    <!-- split the inputs -->
+    <tr>
+        <td><code>4. tel</code></td><td><input type="tel" placeholder="+1 (111) 111-11-11 "></td><td>telephone number</td>
+    </tr>
+    <!-- split the inputs -->
+    <tr>
+        <td><code>5. url</code></td><td><input type="url" placeholder="https://example.com"></td><td>URL address</td>
+    </tr>
+    <!-- split the inputs -->
+    <tr>
+        <td><code>6. search</code></td><td><input type="search" placeholder="search"></td><td>field for search</td>
+    </tr>
+    <!-- split the inputs -->
+    <tr>
+        <td><code>7. color</code></td><td><input type="color" value="#437C94"></td><td>choose a color</td>
+    </tr>
+    <!-- split the inputs -->
+    <tr>
+        <td><code>8. date</code></td><td><input type="date" ></td><td>day.month.year</td>
+    </tr>
+    <!-- split the inputs -->
+    <tr>
+        <td><code>9. time</code></td><td><input type="time" ></td><td>choose a time</td>
+    </tr>
+    <!-- split the inputs -->
+    <tr>
+        <td><code>10. range</code></td><td><input type="range" min="0" max="100" value="100" ></td><td>choose a range, for instance volume control</td>
+    </tr>
+    <!-- split the inputs -->
+    <tr>
+        <td><code>11. file</code></td><td><input type="file"></td><td>choose a file</td>
+    </tr>
+    <!-- split the inputs -->
+    <tr>
+        <td><code>12. checkbox</code></td><td><input type="checkbox" value="3"></td><td>choose</td>
+    </tr>
+    <!-- split the inputs -->
+    <tr>
+        <td><code>13. button</code></td><td><input type="button" value=button></td><td>A button</td>
+    </tr>
+    <!-- split the inputs -->
+    <tr>
+        <td><code>14. submit</code></td><td><input type="submit"></td><td>send</td>
+    </tr>
+    <!-- split the inputs -->
+    <tr>
+        <td><code>15. reset</code></td><td><input type="reset" value="reset"></td><td>cancels changes</td>
+    </tr>
+    <!-- split the inputs -->
+    <tr>
+        <td><code>16. image</code></td><td><input type="image" src="link to a picture" alt></td><td>put a picture</td>
+    </tr>
+    <!-- split the inputs -->
+    </tbody>
+    <tfoot>
+    <tr>
+        <td><code>17. hidden</code></td><td><input type="hidden" ></td><td>A user shouldnt see it, only for us</td>
+    </tr>
+    </tfoot>
+</table>
+</body>
+</html>
