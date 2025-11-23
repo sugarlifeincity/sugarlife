@@ -5,41 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Types input in HTML">
     <title>Input Types</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-
-        }
-        body {
-            font-family: "Roboto Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-            padding: 10px;
-        }
-        input, button {
-            width: 100%;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 10px;
-            text-align: left;
-        }
-        input[type=button] { background-color: aqua;}
-        input[type=submit] { background-color: white;}
-        input[type=reset] { background-color: aqua; }
-
-    </style>
+    <link rel="stylesheet" href="stylesinput.css">
 </head>
 <body>
 <table>
     <thead>
-    <tr><th bgcolor="#ff7f50" colspan="3">Types input</th></tr>
+    <tr><th colspan="3"> Types input</th></tr>
     <tr>
-        <th bgcolor="aqua">type</th>
-        <th bgcolor="aqua">field example</th>
-        <th bgcolor="aqua">description</th>
+        <th>type</th>
+        <th>field example</th>
+        <th>description</th>
     </tr>
     </thead>
     <tbody>
@@ -48,15 +23,15 @@
     </tr>
     <!-- split the inputs -->
     <tr>
-        <td><code>2. email</code></td><td><input type="email" placeholder="user@example.com"></td><td>field for email</td>
+        <td><code>2. email</code></td><td><input type="email" placeholder="user@example.com" required></td><td>field for email</td>
     </tr>
     <!-- split the inputs -->
     <tr>
-        <td><code>3. password</code></td><td><input type="password" placeholder="********"></td><td>field for password</td>
+        <td><code>3. password</code></td><td><input type="password" placeholder="********" required></td><td>field for password</td>
     </tr>
     <!-- split the inputs -->
     <tr>
-        <td><code>4. tel</code></td><td><input type="tel" placeholder="+1 (111) 111-11-11 "></td><td>telephone number</td>
+        <td><code>4. tel</code></td><td><input type="tel" placeholder="+1 (111) 111-11-11 " required></td><td>telephone number</td>
     </tr>
     <!-- split the inputs -->
     <tr>
@@ -84,23 +59,36 @@
     </tr>
     <!-- split the inputs -->
     <tr>
-        <td><code>11. file</code></td><td><input type="file"></td><td>choose a file</td>
+        <td><code>11. file</code></td>
+        <td>
+            <form id="11loadForm">
+                    <input type="file" id="11loadFile" name="11loadedFile" class="input-file" required>
+                    <input type="submit" value="Upload" class="input-eleven">
+            </form>
+
+            <div id="successMessage" style="display:none; color:green;">Success</div>
+            <div id="errorMessage" style="display:none; color:red;">Error</div>
+
+        </td><td>choose a file</td>
     </tr>
+
     <!-- split the inputs -->
     <tr>
         <td><code>12. checkbox</code></td><td><input type="checkbox" value="3"></td><td>choose</td>
     </tr>
     <!-- split the inputs -->
     <tr>
-        <td><code>13. button</code></td><td><input type="button" value=button></td><td>A button</td>
+        <td><code>13. button</code></td>
+            <td><input type="button" value=button id="buttonInput" class="input-cell"> </td>
+        <td>A button</td>
     </tr>
     <!-- split the inputs -->
     <tr>
-        <td><code>14. submit</code></td><td><input type="submit"></td><td>send</td>
+        <td><code>14. submit</code></td><td><input type="submit" value="submit" id="submitInput" class="input-cell"></td><td>send</td>
     </tr>
     <!-- split the inputs -->
     <tr>
-        <td><code>15. reset</code></td><td><input type="reset" value="reset"></td><td>cancels changes</td>
+        <td><code>15. reset</code></td><td><input type="reset" value="reset" id="resetInput" class="input-cell"></td><td>cancels changes</td>
     </tr>
     <!-- split the inputs -->
     <tr>
@@ -115,4 +103,45 @@
     </tfoot>
 </table>
 </body>
+
+<script>
+    document.getElementById('11loadForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const fileInput = document.getElementById('11loadFile');
+        const file = fileInput.files[0];
+
+        if (!file) {
+            alert('choose file');
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('11loadedFile', file);
+
+        fetch('/NameFile', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById('successMessage').style.display = 'block';
+                    fileInput.value = ''
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 5000);
+                } else {
+                    throw new Error('Server error');
+                }
+            })
+            .catch(error => {
+                console.error('error:', error);
+                document.getElementById('errorMessage').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('errorMessage').style.display = 'none';
+                }, 5000);
+            });
+    });
+</script>
+
 </html>
