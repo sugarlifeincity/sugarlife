@@ -1,0 +1,77 @@
+body {
+    font-family: "Roboto Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding: 10px;
+    margin: 0px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.input-cell {
+    box-sizing: border-box;
+    border: 4px solid black;
+    font-weight: bold;
+    text-align: center;
+    border-radius: clamp(6px, 2vw, 12px);
+    color: black;
+
+    width: 100%;
+    padding:clamp(2px, 1vw, 4px);
+    font-size: clamp(20px, 16vw, 24px);
+    min-height: clamp(1px, 0.5vw, 2px);
+
+}
+
+/* to the 11 row */
+
+.input-file {
+    box-sizing: border-box;
+    border: 4px solid black;
+    font-weight: bold;
+    text-align: left;
+    border-radius: clamp(2px, 0.5vw, 4px);
+    margin-right: 20px;
+
+    width: 100%;
+    padding:clamp(2px, 1vw, 4px);
+    font-size: clamp(16px, 12vw, 20px);
+    min-height: clamp(1px, 0.5vw, 2px);
+}
+.input-eleven {
+    box-sizing: border-box;
+    border: 4px solid black;
+    font-weight: bold;
+    text-align: center;
+    border-radius: clamp(2px, 0.5vw, 4px);
+    margin-top: 10px;
+
+    width: 100%;
+    padding:clamp(2px, 1vw, 4px);
+    font-size: clamp(16px, 12vw, 20px);
+    min-height: clamp(1px, 0.5vw, 2px);
+    transition: all 0.3s ease;
+}
+
+/* end 11 */
+
+th{
+    border: 4px solid black;
+    padding: 8px;
+    text-align: center;
+    background-color: aqua;
+}
+td{
+    border: 4px solid black;
+    padding: 8px;;
+    text-align: left;
+}
+thead [colspan="3"] {
+    background-color: deeppink;
+    text-align: center;
+    font-weight: bold;
+}
+
+input[type=button] { background-color: aqua;}
+input[type=submit] { background-color: white;}
+input[type=reset] { background-color: aqua; }
