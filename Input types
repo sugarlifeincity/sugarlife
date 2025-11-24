@@ -19,27 +19,29 @@
     </thead>
     <tbody>
     <!-- split the inputs --><tr>
-        <td><code>1. text</code></td><td><input type="text" placeholder="just text"></td><td>write a little text</td>
+        <td><code>1. text</code></td>
+        <td><input type="text" placeholder="just text" class="input1-6"></td>
+        <td>write a little text</td>
     </tr>
     <!-- split the inputs -->
     <tr>
-        <td><code>2. email</code></td><td><input type="email" placeholder="user@example.com" required></td><td>field for email</td>
+        <td><code>2. email</code></td><td><input type="email" placeholder="user@example.com" class="input1-6" required></td><td>field for email</td>
     </tr>
     <!-- split the inputs -->
     <tr>
-        <td><code>3. password</code></td><td><input type="password" placeholder="********" required></td><td>field for password</td>
+        <td><code>3. password</code></td><td><input type="password" placeholder="********" class="input1-6" required></td><td>field for password</td>
     </tr>
     <!-- split the inputs -->
     <tr>
-        <td><code>4. tel</code></td><td><input type="tel" placeholder="+1 (111) 111-11-11 " required></td><td>telephone number</td>
+        <td><code>4. tel</code></td><td><input type="tel" placeholder="+1 (111) 111-11-11 " class="input1-6" required></td><td>telephone number</td>
     </tr>
     <!-- split the inputs -->
     <tr>
-        <td><code>5. url</code></td><td><input type="url" placeholder="https://example.com"></td><td>URL address</td>
+        <td><code>5. url</code></td><td><input type="url" placeholder="https://example.com" class="input1-6"></td><td>URL address</td>
     </tr>
     <!-- split the inputs -->
     <tr>
-        <td><code>6. search</code></td><td><input type="search" placeholder="search"></td><td>field for search</td>
+        <td><code>6. search</code></td><td><input type="search" placeholder="search" class="input1-6"></td><td>field for search</td>
     </tr>
     <!-- split the inputs -->
     <tr>
@@ -102,46 +104,8 @@
     </tr>
     </tfoot>
 </table>
+
+<script src="operation.js"></script>
 </body>
-
-<script>
-    document.getElementById('11loadForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const fileInput = document.getElementById('11loadFile');
-        const file = fileInput.files[0];
-
-        if (!file) {
-            alert('choose file');
-            return;
-        }
-
-        const formData = new FormData();
-        formData.append('11loadedFile', file);
-
-        fetch('/NameFile', {
-            method: 'POST',
-            body: formData
-        })
-            .then(response => {
-                if (response.ok) {
-                    document.getElementById('successMessage').style.display = 'block';
-                    fileInput.value = ''
-                    setTimeout(() => {
-                        document.getElementById('successMessage').style.display = 'none';
-                    }, 5000);
-                } else {
-                    throw new Error('Server error');
-                }
-            })
-            .catch(error => {
-                console.error('error:', error);
-                document.getElementById('errorMessage').style.display = 'block';
-                setTimeout(() => {
-                    document.getElementById('errorMessage').style.display = 'none';
-                }, 5000);
-            });
-    });
-</script>
 
 </html>
